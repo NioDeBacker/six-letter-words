@@ -6,10 +6,12 @@ string fileName = Path.Combine(Directory.GetCurrentDirectory(), "input.txt");
 ISet<string> maxLetterWords = new HashSet<string>();
 ISet<string> availableStrings = new HashSet<string>();
 
+int maxLength = 6;
+
 using (StreamReader reader = new StreamReader(fileName)) {
     string word;
     while ((word = reader.ReadLine()) != null) {
-        if (word.Length == 6) {
+        if (word.Length == maxLength) {
             maxLetterWords.Add(word);
         } else {
             availableStrings.Add(word);
@@ -22,7 +24,7 @@ foreach (string maxLetterWord in maxLetterWords) {
 }
 
 void BuildWord(string targetWord, string currentWord, IList<string> usedStrings, ISet<string> remainingStrings) {
-    if (currentWord.Length == 6) {
+    if (currentWord.Length == maxLength) {
         Console.WriteLine($"{string.Join('+', usedStrings)} = {targetWord}");
     } else if (targetWord.Length > currentWord.Length) {
         int remainingLength = targetWord.Length - currentWord.Length;
