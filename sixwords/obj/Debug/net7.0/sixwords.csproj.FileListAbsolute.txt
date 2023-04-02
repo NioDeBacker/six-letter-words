@@ -1,0 +1,15 @@
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/bin/Debug/net7.0/sixwords
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/bin/Debug/net7.0/sixwords.deps.json
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/bin/Debug/net7.0/sixwords.runtimeconfig.json
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/bin/Debug/net7.0/sixwords.dll
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/bin/Debug/net7.0/sixwords.pdb
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/sixwords.csproj.AssemblyReference.cache
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/sixwords.GeneratedMSBuildEditorConfig.editorconfig
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/sixwords.AssemblyInfoInputs.cache
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/sixwords.AssemblyInfo.cs
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/sixwords.csproj.CoreCompileInputs.cache
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/sixwords.dll
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/refint/sixwords.dll
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/sixwords.pdb
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/sixwords.genruntimeconfig.cache
+/Users/niodebacker/Documents/Development/six-letter-words/sixwords/obj/Debug/net7.0/ref/sixwords.dll
