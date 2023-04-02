@@ -3,45 +3,41 @@ using System.IO;
 
 string fileName = Path.Combine(Directory.GetCurrentDirectory(), "input.txt");
         
-IDictionary<int, IList<string>> wordsByLength = new Dictionary<int, IList<string>>();
+ISet<string> maxLetterWords = new HashSet<string>();
+ISet<string> availableStrings = new HashSet<string>();
 
 using (StreamReader reader = new StreamReader(fileName)) {
     string word;
     while ((word = reader.ReadLine()) != null) {
-        int wordLength = word.Length;
-
-        if (!wordsByLength.ContainsKey(wordLength)) {
-            wordsByLength[wordLength] = new List<string>();
+        if (word.Length == 6) {
+            maxLetterWords.Add(word);
+        } else {
+            availableStrings.Add(word);
         }
-
-        wordsByLength[wordLength].Add(word);
 
     }
 }
+foreach (string maxLetterWord in maxLetterWords) {
+    BuildWord(maxLetterWord, "", new List<string>(), availableStrings);
+}
 
-
-IList<string> targetWords = wordsByLength[6];
-
-BuildWord("", new List<string>());
-
-
-void BuildWord(string currentWord, IList<string> usedParts) {
-    int remainingLengths = 6 - currentWord.Length;
-    Console.WriteLine(currentWord);
-    if (remainingLengths == 0) {
-        if (targetWords.Contains(currentWord)) {
-            Console.WriteLine(string.Join(" + ", usedParts) + " = " + currentWord);
-        }
-    } else {
-        for (int i = 1; i <= remainingLengths && i < 6; i ++) {
-            IList<string> wordsOfLengthI = wordsByLength[i];
-            foreach(string word in wordsOfLengthI) {
-                if (!usedParts.Contains(word)) {
-                    IList<string> newUsedParts = new List<string>(usedParts);
-                    newUsedParts.Add(word);
-                    BuildWord(currentWord + word, newUsedParts);
-                }
+void BuildWord(string targetWord, string currentWord, IList<string> usedStrings, ISet<string> remainingStrings) {
+    if (currentWord.Length == 6) {
+        Console.WriteLine($"{string.Join('+', usedStrings)} = {targetWord}");
+    } else if (targetWord.Length > currentWord.Length) {
+        int remainingLength = targetWord.Length - currentWord.Length;
+        foreach (string part in remainingStrings) {
+            if ( ( (part.Length <= remainingLength) && targetWord.Contains(currentWord+part) && !usedStrings.Contains(part) )) {
+                //Console.WriteLine(currentWord);
+                // Console.WriteLine(remainingLength);
+                // Console.WriteLine(string.Join("+",usedStrings));
+                List<string> newUsedStrings = new List<string>(usedStrings);
+                HashSet<string> newRemainingStrings = new HashSet<string>(remainingStrings);
+                newRemainingStrings.Remove(part);
+                newUsedStrings.Add(part);
+                BuildWord(targetWord, currentWord + part, newUsedStrings , newRemainingStrings);
             }
         }
     }
 }
+
