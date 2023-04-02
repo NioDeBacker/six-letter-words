@@ -6,7 +6,7 @@ To run the code, copy the repository and execute following commands
 
 ```bash
 cd sixwords
-dotnet run
+dotnet run [absolutePath] [wordLength]
 ```
 
 ## Notes on solution

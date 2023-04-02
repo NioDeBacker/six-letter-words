@@ -1,13 +1,35 @@
 ﻿using System;
 using System.IO;
 
-string fileName = Path.Combine(Directory.GetCurrentDirectory(), "input.txt");
+var arg = Environment.GetCommandLineArgs();
+
+string path;
+int length;
+
+// command line for dynamic
+try {
+    path = args[0];
+    if (! File.Exists(path)) {
+        throw new Exception("Path does not exist");
+    }
+} catch (Exception e) {
+    Console.WriteLine("Using default file path");
+    path = Path.Combine(Directory.GetCurrentDirectory(), "input.txt");
+}
+
+try {
+length = Int32.Parse(args[1]);
+} catch (Exception e) {
+    Console.WriteLine("Using word of length 6");
+    length = 6;
+}
+
+string fileName = path;
         
 ISet<string> maxLetterWords = new HashSet<string>();
 ISet<string> availableStrings = new HashSet<string>();
 
-// TODO: make this dynamic
-int maxLength = 6;
+int maxLength = length;
 
 // read words line by line
 using (StreamReader reader = new StreamReader(fileName)) {
